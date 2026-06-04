@@ -17,4 +17,13 @@
     "AIRTABLE_BASE_ID": "appT72XMGj0X6lUoM",
     "AIRTABLE_TABLE_NAME": "TLF Form Submissions",
   },
+"observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false
+    }
+  }
 }

@@ -1,50 +1,56 @@
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
-
-
-const createAirtableRecord = body => {
-  return fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: {
-      Authorization: `Bearer ${AIRTABLE_API_KEY}`,
-      'Content-type': `application/json`
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === "/submit") {
+      await submitHandler(request, env);
     }
-  })
-}
-
-const submitHandler = async request => {
+    return new Response("Not found", { status: 404 });
+  },
+};
+async function submitHandler(request, env) {
   if (request.method !== "POST") {
     return new Response("Method Not Allowed", {
-      status: 405
-    })
+      status: 405,
+    });
   }
-
   const body = await request.formData();
 
-  const {
-    name,
-    email,
-  } = Object.fromEntries(body)
+  const {name, email} =
+    Object.fromEntries(body);
 
+  // The keys in "fields" are case-sensitive, and
+  // should exactly match the field names you set up
+  // in your Airtable table, such as "First Name".
   const reqBody = {
     fields: {
-      "name": name,
-      email: email,
+      "Name": name,
+      Email: email,
     },
   };
-
-  await createAirtableRecord(reqBody)
-  // return Response.redirect(FORM_URL)
+  await createAirtableRecord(env, reqBody);
 }
 
-async function handleRequest(request) {
-  const url = new URL(request.url)
-
-  if (url.pathname === "/submit") {
-    return submitHandler(request)
+// Existing code
+// export default ...
+async function createAirtableRecord(env, body) {
+  try {
+    const result = fetch(
+      `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/${encodeURIComponent(env.AIRTABLE_TABLE_NAME)}`,
+      {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          Authorization: `Bearer ${env.AIRTABLE_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      },
+    );
+    return result;
+  } catch (error) {
+    console.error(error);
   }
-
-  return new Response.redirect(FORM_URL)
 }
+
+// Existing code
+// async function submitHandler
+// export default ...
