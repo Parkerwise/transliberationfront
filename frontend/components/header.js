@@ -1,28 +1,37 @@
-class Header extends HTMLElement {
-  constructor() {
-    super();
-  }
+let isSubmitted = false;
 
-  connectedCallback() {
-    this.innerHTML = `
-	<header>
-			<div class="bar-container">
-			<nav>
-				<h1>Parker Wise</h1>
-				<ul id="sidemenu">	
-					<li><a href="./index.html">About</a></li>
-					<li><a href="./projects.html">Projects</a></li>
-					<li><a href="./outreach.html">Outreach</a></li>
-					<li><a href="./parkerwise.pdf">Resume</a></li>
-					<li><a href="./blog.html">Blog</a></li>
-					<i class="fas fa-times" onclick="closemenu()"></i>
-				</ul>
-				<i class="fas fa-bars" onclick="openmenu()"></i>
-			</nav>
-			</div>
-		</header>
-    `;
-  }
-}
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-customElements.define('header-component', Header);
+    if (!isSubmitted) {
+      isSubmitted = true;
+      document.getElementById('submit-button').disabled = true;
+      document.getElementById('submit-button').classList.add('disabled');
+
+      const formData = new FormData(document.getElementById('contactForm'));
+
+      try {
+        const response = await fetch('/contact/submit/', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+
+        const responseText = await response.text();
+
+        document.getElementById('response').textContent = responseText;
+      } catch (error) {
+        document.getElementById('response').textContent = `ERROR: ${error.message}`;
+      }
+    }
+
+    return;
+  });
+
+  return;
+});
+
