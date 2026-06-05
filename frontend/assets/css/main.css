@@ -1,6 +1,6 @@
 /* Styling the Body element */
 body {
-    background-color: #05c46b;
+    background-color: #cba5e0;
     font-family: Verdana;
     text-align: center;
 }
@@ -41,7 +41,7 @@ form {
 }
 /* Styling Button */
 button {
-    background-color: #05c46b;
+    background-color: #cba5e0;
     border: 1px solid #777;
     border-radius: 2px;
     font-family: inherit;
