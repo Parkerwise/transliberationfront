@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(document.getElementById('form'));
 
       try {
-        const response = await fetch('/contact/submit', {
+        const response = await fetch('/contact/submit/', {
           method: 'POST',
           body: formData
         });
