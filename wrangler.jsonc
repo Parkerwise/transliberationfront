@@ -2,7 +2,7 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   // Top-level configuration
   "name": "transliberationfront",
-  "main": "./src/index.js",
+  // "main": "./src/index.js",
   // Set this to today's date
   "compatibility_date": "2026-06-04",
   // "workers_dev": false,
