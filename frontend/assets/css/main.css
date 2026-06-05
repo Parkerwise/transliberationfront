@@ -5,6 +5,10 @@
 	font-family: 'Arial', sans-serif;
 	box-sizing: border-box;
 }
+
+nav .fas{
+	display: inline;
+}
 nav {
   display: flex;
   align-items: center;
@@ -23,6 +27,9 @@ body{
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+}
+header{
+	z-index:10;
 }
 
 /* ---------- All pages ---------*/
@@ -44,6 +51,7 @@ body{
 }
 .bar-container{
 	padding:5px 5%;
+	/* z-index: 3; */
 	width: 100%;
 	background-color:#9344bb;
 }
@@ -63,24 +71,25 @@ nav ul li{
 	margin:10px 20px;
 }
 nav ul li a{
-	color:#000;
+	color:#fff;
+	left: 20px;
 	text-decoration:none;
 	font-size:18px;
-	position:relative;
+	/* position:relative; */
 }
 nav ul li a::after{
 	content:'';
 	width:0;
 	height:3px;
-	background:#000;
+	background:#fff;
 	position:absolute;
 	left:0;
 	bottom:-6px;
 	transition:0.5s;
 }
-nav ul li a:hover::after{
-	width:100%;
-}
+/* nav ul li a:hover::after{ */
+/* 	width:100%; */
+/* } */
 nav .fas{
 	display: none;
 }
@@ -190,6 +199,9 @@ links {
 	.fullscreen{
 	display: none;
 }
+nav ul li a{
+color:#fff;
+	}
 .mobile {
 	display:block;
 	/* border: 3px solid yellow !important; */
@@ -200,31 +212,67 @@ links {
 	/* padding: 5px; */
 }
 	.page-title{
+	justify-content: space-between;
 	width: 100%;
 }
+
 nav .fas{
-	display: block;
+	display: inline;
 }
-nav ul{
-	background:#9344bbE6;
-	position: fixed;
-	top: 0;
-	right: -200px;
-	width: 200px;
-	height: 100vh;
-	padding-top: 50px;
-	z-index: 2;
-	transition: right 0.5s;
+
+/* #bar { */
+/* 	position: relative; */
+/* 	z-index: 2; */
+/* 	} */
+#sidemenu{
+	justify-content: left;
+	display:inline table;
+	font-size: 30px;
+	overflow: hidden;
+	background: #3c1c4d;
+	opacity:0;
+	position:fixed;
+	/* left:-999em; */
+	box-sizing:border-box;
+	width: 100vw;
+	height:50px;
+	right: 0;
+	z-index:-1;
+	transform:translateY(-200px);
+	transition:transform 1s ease, opacity 1s ease, top 0s ease 1s, left 0s ease 1s;
 }
+nav first{
+left:20px;
+	}
+#sidemenu.open {
+	justify-content: left;
+	display:inline table;
+	transform:translateY(0%);
+	opacity:1;
+	left:0;
+	transition:transform 1s ease, opacity 1s ease;
+}
+
+
+/* nav ul{ */
+/* 	/* visibility: hidden; */ */
+/* 	/* overflow: hidden; */ */
+/* 	/* padding-top: 50px; */ */
+/* 	/* z-index: 0; */ */
+/* 	/* animation-direction: normal; */ */
+/* 	transition:height 0.5s; */
+/* } */
 nav ul li{
 	display: block;
 	margin: 25px;
 
 }
 nav ul .fas{
-	position: absolute;
-	top: 25px;
-	left: 25px;
+	position: relative;
+	color:#fff;
+	display: inline;
+	/* top: 25px; */
+	/* left: 25px; */
 	cursor: pointer;
 }
 }
