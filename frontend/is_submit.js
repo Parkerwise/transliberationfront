@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!isSubmitted) {
       isSubmitted = true;
-      document.getElementById('submit').disabled = true;
-      document.getElementById('submit').classList.add('disabled');
+      document.getElementById('submit-button').disabled = true;
+      document.getElementById('submit-button').classList.add('disabled');
 
       const formData = new FormData(document.getElementById('form'));
 
