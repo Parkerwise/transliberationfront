@@ -7,9 +7,11 @@ body {
 /* Styling the Form */
 form {
     background-color: #fff;
-    max-width: 500px;
+    width: 50vw;
     margin: 50px auto;
     padding: 30px 20px;
+	/* display: grid; */
+	display: inline grid;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
 }
 /* Styling .form-control */
