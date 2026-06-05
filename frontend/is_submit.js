@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const responseText = await response.text();
 
-        document.getElementById('theDiv').textContent = responseText;
+        document.getElementById('response').textContent = responseText;
       } catch (error) {
-        document.getElementById('theDiv').textContent = `ERROR: ${error.message}`;
+        document.getElementById('response').textContent = `ERROR: ${error.message}`;
       }
     }
 
