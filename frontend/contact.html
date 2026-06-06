@@ -34,7 +34,7 @@
 			<label for="phone">Phone</label>
 			<input type="phone" id="phone" name="phone" placeholder="" value="" >
 			<label for="other">Other</label>
-			<input type="other" id="other" name="other" placeholder="" value="" >
+			<input type="other" id="fug" name="fug" placeholder="" value="" >
 			</div>
 			<br>
 			<div class="select-btn">
@@ -50,11 +50,11 @@
               <li>
                 <label for="history">
 				Queer History (07/11 @ 6pm)
-				<input type="checkbox" id="history" name="history" value="">
+				<input type="checkbox" id="history" name="history" value="on">
 				</label>
               </li>
               <li>
-                <label for="meeting">Schedule a one-on-one<input type="checkbox" id="meeting" name="meeting" value=""></label>
+                <label for="meeting">Schedule a one-on-one<input type="checkbox" id="meeting" name="meeting" value="on"></label>
               </li>
             </ul>
 			</div>
@@ -83,56 +83,6 @@
 	<!-- <a href="mailto:wiseparker03@ku.edu"><j class="fa-solid fa-envelope"></j></a> -->
 	<div class="copyright">&copy Trans Liberation Front 2026</div>
 </footer>
-<script>
-var sidemenu = document.getElementById("sidemenu");
-var offsetHeight = document.getElementById('bar').offsetHeight-10;
-const element = document.getElementById('sidemenu')
-function openmenu() {
-	sidemenu.style.top=offsetHeight+"px";
-	element.classList.toggle('open');
-	};
-
-function closemenu(){
-	element.classList.toggle('open')
-	};
-
-
-let isSubmitted = false;
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if (!isSubmitted) {
-      isSubmitted = true;
-      document.getElementById('submit-button').disabled = true;
-      document.getElementById('submit-button').classList.add('disabled');
-
-      const formData = new FormData(document.getElementById('form'));
-
-      try {
-        const response = await fetch('/contact/submit/', {
-          method: 'POST',
-          body: formData
-        });
-
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
-
-        const responseText = await response.text();
-
-        document.getElementById('response').textContent = responseText;
-      } catch (error) {
-        document.getElementById('response').textContent = `ERROR: ${error.message}`;
-      }
-    }
-
-    return;
-  });
-
-  return;
-});
-
+<script src="is_submit.js">
 </script>
 </html>
