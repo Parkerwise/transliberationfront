@@ -1,4 +1,3 @@
-
 *{
 	margin:0;
 	padding:0;
@@ -240,15 +239,16 @@ border: 0 none;
 .select-btn:hover .arrow-dwn{
 transform: rotate(180deg);
 }
-.options{
+#options{
 display:none;
 }
 .select-btn:hover .summary{
   padding-bottom: 0px !important;
 }
-.select-btn:hover .options{
+
+#options.reveal{
   display:block;
-  transition: 4s;
+  /* transition: 4s; */
 }
 /* .btn-text{ */
 /*   padding: 100px; */

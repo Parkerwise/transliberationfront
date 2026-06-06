@@ -5,11 +5,13 @@ function openmenu() {
 	sidemenu.style.top=offsetHeight+"px";
 	element.classList.toggle('open');
 	};
-
 function closemenu(){
 	element.classList.toggle('open')
 	};
-
+function opendropdown(){
+	const div = document.getElementById("options");
+	div.classList.toggle('reveal')
+}
 
 let isSubmitted = false;
 
