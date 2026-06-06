@@ -26,6 +26,7 @@
 	<h2 class="page-title">TLF Contact Form </h2>
 		<form id="form" accept-charset=utf-8>
         <div class="form-control">
+        <div class="text-fields">
 			<label for="name">Name</label>
 			<input type="text" id="name" name="name" placeholder="" value="" required>
 			<label for="email">Email</label>
@@ -34,7 +35,32 @@
 			<input type="phone" id="phone" name="phone" placeholder="" value="" >
 			<label for="other">Other</label>
 			<input type="other" id="other" name="other" placeholder="" value="" >
+			</div>
+			<br>
+			<div class="select-btn">
+			<div class="summary">
+			<span class="btn-text">RSVP to Events</span>
+			<span class="arrow-dwn">
+				<i class="fa-solid fa-chevron-down"></i>
+			</span>
+			</div>
+			<br>
+			<div class="options">
+            <ul>
+              <li>
+                <label for="history">
+				Queer History (07/11 @ 6pm)
+				<input type="checkbox" id="history" name="history" value="">
+				</label>
+              </li>
+              <li>
+                <label for="meeting">Schedule a one-on-one<input type="checkbox" id="meeting" name="meeting" value=""></label>
+              </li>
+            </ul>
+			</div>
+			</div>
         <button id="submit-button" type="submit" value="submit">Submit</button>
+
 	</div>
     </form>
 	<div id="response"></div>

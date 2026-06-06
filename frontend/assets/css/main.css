@@ -102,8 +102,12 @@ nav .fas{
 
 /* ---------- About ---------*/
 .row{
-	display: flex;
+	text-align: center;
+	/* display: flex; */
+	margin-left: auto;
+	margin-right: auto;
 	margin-top:20px;
+	/* width: 60vw; */
 	justify-content: space-between;
 	flex-wrap: wrap;
 	/* border-radius: 10px; */
@@ -121,10 +125,11 @@ nav .fas{
 }
 form{
 	flex-basis: 100%;
+	/* max-width: 60vw; */
 	height: fit-content;
 	/* border-radius: 10px; */
     /* height: 50vh; */
-    width: 50vw;
+    width: 75vw;
 	/* margin: 50px auto; */
 	/* margin: 10px; */
 	margin-top: 10px;
@@ -136,16 +141,31 @@ form{
 	display: inline grid;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
 }
-.form-control input, .form-control select, .form-control textarea {
+.select-btn{
   border: 1px solid #777;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  font-family: inherit;
+  display: block;
+justify-content: center;
+
+}
+.summary{
+  padding: 10px;
+  padding-bottom: 0px !important;
+}
+.form-control input, .form-control select, .form-control textarea{
+  border: 1px solid #777;
+  margin-bottom: 10px;
   border-radius: 2px;
   font-family: inherit;
   padding: 10px;
   display: block;
 justify-content: center;
+}
+.text-fields input{
   width: 100%;
 }
-
 .form-control {
     text-align: left;
     /* margin-bottom: 5px; */
@@ -163,9 +183,79 @@ button {
   margin-bottom: 20px;
 }
 
+/* .summary::after { */
+/*   display: inline-block; */
+/*   font-size: 0.6rem; */
+/*   height: 1rem; */
+/*   line-height: 1rem; */
+/*   margin-left: 0.5rem; */
+/*   position: relative; */
+/*   transition: transform 0.25s; */
+/* } */
+
+.summary {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.fieldset li{
+	display: flex;
+	justify-content: space-between;
+	padding:10px;
+}
+.fieldset{
+  display:flex;
+  justify-content: space-between;
+  color: #fff;
+}
+.options{
+  background-color:#fff;
+  padding: 0px;
+}
+/* .form-control input, .form-control select, .form-control textarea, .select-btn{ */
+fieldset {
+border: 0 none;
+}
+.select-btn ul li label {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.select-btn ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.select-btn ul li {
+  margin: 0;
+  padding: 4px 10px;
+}
+.select-btn ul li:hover {
+  background: #eee;
+}
+
+.select-btn:hover .arrow-dwn{
+transform: rotate(180deg);
+}
+.options{
+display:none;
+}
+.select-btn:hover .summary{
+  padding-bottom: 0px !important;
+}
+.select-btn:hover .options{
+  display:block;
+  transition: 4s;
+}
+/* .btn-text{ */
+/*   padding: 100px; */
+/* } */
 .form-control label {
     display: block;
-    margin-top: 10px;
+    margin-top: 2px;
     margin-bottom: 2px;
 }
  /*---------- Footer ---------*/
@@ -212,8 +302,13 @@ color:#fff;
 	/* padding: 5px; */
 }
 	.page-title{
-	justify-content: space-between;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 	width: 100%;
+}
+h1{
+text-align: center;
 }
 
 nav .fas{
